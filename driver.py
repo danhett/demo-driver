@@ -85,7 +85,7 @@ def callFlippy(url):
         print("didn't work, bruh")
 
 def doTimerEvent():
-  threading.Timer(100.0, getPoem).start()
+  threading.Timer(60.0, getPoem).start()
   getPoem();
 
 doTimerEvent()
