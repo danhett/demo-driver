@@ -17,7 +17,6 @@ from raven import Client
 import math
 import os
 import random
-from __version__ import VERSION as v
 
 # settings
 poemRequestTime = 10 # number of seconds between poem requests
@@ -29,9 +28,8 @@ clear_url = url_root + '/clear'
 pid = os.environ.get('PIDFILE_LOCATION')
 location = os.environ.get('LOCATION')
 
-
 # makes the poem request
-def getPoem(sc):
+def getPoem():
     poems = ''
     with open('poems.json') as data:
         poems = json.load(data)
@@ -83,5 +81,6 @@ def callFlippy(url):
     try:
         urlopen(url, timeout=10).read()
     except Exception as e:
-        logger.error(e)
-        sentry_client.captureException()
+        print("didn't work, bruh")
+
+getPoem()
