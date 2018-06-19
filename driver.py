@@ -17,6 +17,7 @@ from raven import Client
 import math
 import os
 import random
+import threading
 
 # settings
 poemRequestTime = 10 # number of seconds between poem requests
@@ -83,4 +84,8 @@ def callFlippy(url):
     except Exception as e:
         print("didn't work, bruh")
 
-getPoem()
+def doTimerEvent():
+  threading.Timer(100.0, printit).start()
+  getPoem();
+
+doTimerEvent()
