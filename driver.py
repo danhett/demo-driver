@@ -34,9 +34,8 @@ location = os.environ.get('LOCATION')
 def getPoem(sc):
     poems = ''
     with open('poems.json') as data:
-    poems = json.load(data)
-    poem = random.choice(poems)
-    #logger.warning("Using backup poem: {}".format(poem))
+        poems = json.load(data)
+        poem = random.choice(poems)
 
     printLines(poem['poem'])
 
